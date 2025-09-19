@@ -1,6 +1,6 @@
 {
   "name": "@omniscient-ai/genson-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "author": "Skye Brady <skye.brady@omniscient.uk.com>",
