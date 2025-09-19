@@ -1,6 +1,4 @@
 # genson-js
-![Build](https://github.com/aspecto-io/genson-js/workflows/Build/badge.svg) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![TypeScript](https://badgen.net/npm/types/env-var)](http://www.typescriptlang.org/) [![NPM version](https://img.shields.io/npm/v/genson-js.svg)](https://www.npmjs.com/package/genson-js)
-
 
 **genson-js** is a user-friendly **JSON Schema** generator built in TypeScript/JavaScript.
 
@@ -16,12 +14,12 @@ genson-js's core function is to take JSON objects and generate schemas that desc
 To infer a schema from existing object:
 
 ```ts
-import { createSchema } from 'genson-js';
+import { createSchema } from "genson-js";
 
 const schema = createSchema({
-    userName: 'smith',
-    languages: ['c++', 'java'],
-    age: 40,
+  userName: "smith",
+  languages: ["c++", "java"],
+  age: 40,
 });
 ```
 
@@ -53,9 +51,12 @@ The following schema will be created:
 You can merge 2 or more schemas, so that merged schema would be kind of a superset of the schemas that it was built from:
 
 ```ts
-import { mergeSchemas } from 'genson-js';
+import { mergeSchemas } from "genson-js";
 
-const merged = mergeSchemas([{ type: ValueType.Number }, { type: ValueType.String }]);
+const merged = mergeSchemas([
+  { type: ValueType.Number },
+  { type: ValueType.String },
+]);
 
 // will create merged schema like this:
 // { type: ['number', 'string'] }
@@ -67,9 +68,13 @@ Shorthand for createSchema + mergeSchemas.
 Can take multiple inputs and create one compound schema:
 
 ```ts
-import { createCompoundSchema } from 'genson-js';
+import { createCompoundSchema } from "genson-js";
 
-const schema = createCompoundSchema([{ age: 19, name: 'John' }, { age: 23, admin: true }, { age: 35 }]);
+const schema = createCompoundSchema([
+  { age: 19, name: "John" },
+  { age: 23, admin: true },
+  { age: 35 },
+]);
 
 // Will create the following schema:
 // {
@@ -84,9 +89,9 @@ const schema = createCompoundSchema([{ age: 19, name: 'John' }, { age: 23, admin
 You can extend existing schema to match some value:
 
 ```ts
-import { extendSchema } from 'genson-js';
+import { extendSchema } from "genson-js";
 
-const extended = extendSchema({ type: ValueType.Number }, 'some string');
+const extended = extendSchema({ type: ValueType.Number }, "some string");
 
 // will create extended schema like this:
 // { type: ['number', 'string'] }
@@ -97,7 +102,7 @@ const extended = extendSchema({ type: ValueType.Number }, 'some string');
 You can compare 2 schemas for equality like this:
 
 ```ts
-import { areSchemasEqual } from 'genson-js';
+import { areSchemasEqual } from "genson-js";
 
 areSchemasEqual({ type: ValueType.Number }, { type: ValueType.Number });
 // will return true
@@ -108,13 +113,17 @@ areSchemasEqual({ type: ValueType.Number }, { type: ValueType.Number });
 You can also check if one schema is a subset of another one like so:
 
 ```ts
-import { isSubset } from 'genson-js';
+import { isSubset } from "genson-js";
 
 isSubset(
-    { type: ValueType.Array, items: { type: [ValueType.Boolean, ValueType.Integer] } },
-    { type: ValueType.Array, items: { type: [ValueType.Boolean] } }
+  {
+    type: ValueType.Array,
+    items: { type: [ValueType.Boolean, ValueType.Integer] },
+  },
+  { type: ValueType.Array, items: { type: [ValueType.Boolean] } },
 );
 // will return true
 ```
+
 <hr/>
 You can find more examples in the unit tests.

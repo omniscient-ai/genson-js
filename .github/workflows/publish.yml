@@ -1,12 +1,12 @@
 name: Publish to NPM
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       semanticVersion:
-        description: 'Semantic Version [major|minor|patch]'
+        description: "Semantic Version [major|minor|patch]"
         required: true
-        default: 'patch'
+        default: "patch"
 
 jobs:
   Publish:
@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.ADMIN_TOKEN }}
-          ref: 'master'
+          ref: "master"
 
       - uses: actions/setup-node@v1
         with:
@@ -42,7 +42,7 @@ jobs:
       - name: Update yarn commit message
         run: yarn config set version-git-message "chore(release) - publish v%s"
 
-      - name: Bump Version 
+      - name: Bump Version
         run: yarn version --${{ github.event.inputs.semanticVersion }} --no-commit-hooks
 
       - name: Publish to NPM
@@ -52,4 +52,3 @@ jobs:
 
       - name: Push Version Update
         run: git push
-          
