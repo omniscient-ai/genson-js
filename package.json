@@ -1,9 +1,9 @@
 {
-  "name": "genson-js",
+  "name": "@omniscient-ai/genson-js",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
-  "author": "omniscient.uk.com",
+  "author": "Skye Brady <skye.brady@omniscient.uk.com>",
   "license": "Apache-2.0",
   "keywords": [
     "json",
@@ -36,5 +36,8 @@
     "dist/**/*.d.ts",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
