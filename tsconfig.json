@@ -12,7 +12,7 @@
     "inlineSources": true,
     "types": ["node"],
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
   },
   "include": ["src/**/*"],
   "exclude": ["**/node_modules/*", "dist"]

@@ -1,6 +1,6 @@
-import { areSchemasEqual, ValueType, isSubset, createSchema } from "../src";
+import { areSchemasEqual, ValueType, isSubset } from "../src";
 import { complexSchema1, complexSchema2 } from "./fixtures";
-import { pp } from "./test-utils";
+import { describe, it, expect } from 'vitest';
 
 describe("Schema Comparison", () => {
   describe("simple schemas", () => {

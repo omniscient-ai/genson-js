@@ -5,7 +5,7 @@ import {
   extendSchema,
   createCompoundSchema,
 } from "../src";
-import { pp } from "./test-utils";
+import { describe, it, expect } from 'vitest';
 
 describe("SchemaBuilder", () => {
   describe("generation", () => {
