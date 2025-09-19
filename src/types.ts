@@ -1,25 +1,28 @@
 export enum ValueType {
-    Null = 'null',
-    Boolean = 'boolean',
-    Integer = 'integer',
-    Number = 'number',
-    String = 'string',
-    Object = 'object',
-    Array = 'array',
+  Null = "null",
+  Boolean = "boolean",
+  Integer = "integer",
+  Number = "number",
+  String = "string",
+  Object = "object",
+  Array = "array",
 }
 
 export type Schema = {
-    type?: ValueType | ValueType[];
-    items?: Schema;
-    properties?: Record<string, Schema>;
-    required?: string[];
-    anyOf?: Array<Schema>;
+  type?: ValueType | ValueType[];
+  items?: Schema;
+  properties?: Record<string, Schema>;
+  required?: string[];
+  anyOf?: Array<Schema>;
+  additionalProperties?: {type: ValueType | ValueType[]} | false;
+  [key: `\$${string}`]: string
 };
 
 export type SchemaGenOptions = {
-    noRequired: boolean;
+  noRequired?: boolean;
+  noAdditionalProperties?: boolean;
 };
 
 export type SchemaComparisonOptions = {
-    ignoreRequired: boolean;
+  ignoreRequired: boolean;
 };
