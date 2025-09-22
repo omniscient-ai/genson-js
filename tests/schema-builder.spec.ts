@@ -305,6 +305,22 @@ describe("SchemaBuilder", () => {
           },
         });
       });
+
+      it("should generate schema for object w/o additional properties allowed", () => {
+        const schema = createSchema(
+          { one: "a", two: "b" },
+          { noAdditionalProperties: true },
+        );
+        expect(schema).toEqual({
+          type: "object",
+          properties: {
+            one: { type: "string" },
+            two: { type: "string" },
+          },
+          additionalProperties: false,
+          required: ["one", "two"],
+        });
+      });
     });
 
     describe("prototype methods", () => {
