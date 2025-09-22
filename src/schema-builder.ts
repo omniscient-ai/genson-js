@@ -53,6 +53,9 @@ function createSchemaForObject(
   if (!options?.noRequired) {
     schema.required = keys;
   }
+  if (options?.noAdditionalProperties) {
+    schema.additionalProperties = false;
+  }
   return schema;
 }
 

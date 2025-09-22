@@ -14,10 +14,13 @@ export type Schema = {
   properties?: Record<string, Schema>;
   required?: string[];
   anyOf?: Array<Schema>;
+  additionalProperties?: {type: ValueType | ValueType[]} | false;
+  [key: `\$${string}`]: string
 };
 
 export type SchemaGenOptions = {
-  noRequired: boolean;
+  noRequired?: boolean;
+  noAdditionalProperties?: boolean;
 };
 
 export type SchemaComparisonOptions = {
